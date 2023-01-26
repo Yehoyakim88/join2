@@ -29,394 +29,27 @@ let alphabet = [
   "Z",
 ];
 
-let contacts = [
-  {
-    contact: "Anna Dobai",
-    name: "Anna",
-    lastName: "Dobai",
-    phonenumber: "01599 12345678",
-    mail: "anna_dobai@mail.de",
-  },
-  {
-    contact: "Alina Numey",
-    name: "Alina",
-    lastName: "Numey",
-    phonenumber: "01599 12345678",
-    mail: "alina_numey@mail.de",
-  },
-  {
-    contact: "Bernd Dobai",
-    name: "Bernd",
-    lastName: "Dobai",
-    phonenumber: "01599 12345678",
-    mail: "bernd_dobai@mail.de",
-  },
-  {
-    contact: "Berth Numey",
-    name: "Berth",
-    lastName: "Numey",
-    phonenumber: "01599 12345678",
-    mail: "berth_numey@mail.de",
-  },
-  {
-    contact: "Carina Dobai",
-    name: "Carina",
-    lastName: "Dobai",
-    phonenumber: "01599 12345678",
-    mail: "carina_dobai@mail.de",
-  },
-  {
-    contact: "Cora Numey",
-    name: "Cora",
-    lastName: "Numey",
-    phonenumber: "01599 12345678",
-    mail: "cora_numey@mail.de",
-  },
-  {
-    contact: "Daniel Dobai",
-    name: "Daniel",
-    lastName: "Dobai",
-    phonenumber: "01599 12345678",
-    mail: "daniel_dobai@mail.de",
-  },
-  {
-    contact: "Dennis Numey",
-    name: "Dennis",
-    lastName: "Numey",
-    phonenumber: "01599 12345678",
-    mail: "dennis_numey@mail.de",
-  },
-  {
-    contact: "Eden Dobai",
-    name: "Eden",
-    lastName: "Dobai",
-    phonenumber: "01599 12345678",
-    mail: "eden_dobai@mail.de",
-  },
-  {
-    contact: "Enja Numey",
-    name: "Enja",
-    lastName: "Numey",
-    phonenumber: "01599 12345678",
-    mail: "enja_numey@mail.de",
-  },
-  {
-    contact: "Felix Dobai",
-    name: "Felix",
-    lastName: "Dobai",
-    phonenumber: "01599 12345678",
-    mail: "felix_dobai@mail.de",
-  },
-  {
-    contact: "Frederike Numey",
-    name: "Frederike",
-    lastName: "Numey",
-    phonenumber: "01599 12345678",
-    mail: "frederike_numey@mail.de",
-  },
-  {
-    contact: "Georg Dobai",
-    name: "Georg",
-    lastName: "Dobai",
-    phonenumber: "01599 12345678",
-    mail: "georg_dobai@mail.de",
-  },
-  {
-    contact: "Gunter Numey",
-    name: "Gunter",
-    lastName: "Numey",
-    phonenumber: "01599 12345678",
-    mail: "gunter_numey@mail.de",
-  },
-  {
-    contact: "Hans Dobai",
-    name: "Hans",
-    lastName: "Dobai",
-    phonenumber: "01599 12345678",
-    mail: "hans_dobai@mail.de",
-  },
-  {
-    contact: "Helena Numey",
-    name: "Helena",
-    lastName: "Numey",
-    phonenumber: "01599 12345678",
-    mail: "helena_numey@mail.de",
-  },
-  {
-    contact: "Ina Dobai",
-    name: "Ina",
-    lastName: "Dobai",
-    phonenumber: "01599 12345678",
-    mail: "ina_dobai@mail.de",
-  },
-  {
-    contact: "Ines Numey",
-    name: "Ines",
-    lastName: "Numey",
-    phonenumber: "01599 12345678",
-    mail: "ines_numey@mail.de",
-  },
-  {
-    contact: "Jakob Dobai",
-    name: "Jakob",
-    lastName: "Dobai",
-    phonenumber: "01599 12345678",
-    mail: "jakob_dobai@mail.de",
-  },
-  {
-    contact: "Jens Numey",
-    name: "Jens",
-    lastName: "Numey",
-    phonenumber: "01599 12345678",
-    mail: "jens_numey@mail.de",
-  },
-  {
-    contact: "Karla Dobai",
-    name: "Karla",
-    lastName: "Dobai",
-    phonenumber: "01599 12345678",
-    mail: "karla_dobai@mail.de",
-  },
-  {
-    contact: "Kerstin Numey",
-    name: "Kerstin",
-    lastName: "Numey",
-    phonenumber: "01599 12345678",
-    mail: "kerstin_numey@mail.de",
-  },
-  {
-    contact: "Laila Dobai",
-    name: "Laila",
-    lastName: "Dobai",
-    phonenumber: "01599 12345678",
-    mail: "laila_dobai@mail.de",
-  },
-  {
-    contact: "Lilian Numey",
-    name: "Lilian",
-    lastName: "Numey",
-    phonenumber: "01599 12345678",
-    mail: "lilian_numey@mail.de",
-  },
-  {
-    contact: "Martha Dobai",
-    name: "Martha",
-    lastName: "Dobai",
-    phonenumber: "01599 12345678",
-    mail: "martha_dobai@mail.de",
-  },
-  {
-    contact: "Max Numey",
-    name: "Max",
-    lastName: "Numey",
-    phonenumber: "01599 12345678",
-    mail: "max_numey@mail.de",
-  },
-  {
-    contact: "Nadine Dobai",
-    name: "Nadine",
-    lastName: "Dobai",
-    phonenumber: "01599 12345678",
-    mail: "nadine_dobai@mail.de",
-  },
-  {
-    contact: "Nora Numey",
-    name: "Nora",
-    lastName: "Numey",
-    phonenumber: "01599 12345678",
-    mail: "nora_numey@mail.de",
-  },
-  {
-    contact: "Olaf Dobai",
-    name: "Olaf",
-    lastName: "Dobai",
-    phonenumber: "01599 12345678",
-    mail: "olaf_dobai@mail.de",
-  },
-  {
-    contact: "Otto Numey",
-    name: "Otto",
-    lastName: "Numey",
-    phonenumber: "01599 12345678",
-    mail: "otto_numey@mail.de",
-  },
-  {
-    contact: "Paula Dobai",
-    name: "Paula",
-    lastName: "Dobai",
-    phonenumber: "01599 12345678",
-    mail: "paula_dobai@mail.de",
-  },
-  {
-    contact: "Penelope Numey",
-    name: "Penelope",
-    lastName: "Numey",
-    phonenumber: "01599 12345678",
-    mail: "penelope_numey@mail.de",
-  },
-  {
-    contact: "Qastai Dobai",
-    name: "Qastai",
-    lastName: "Dobai",
-    phonenumber: "01599 12345678",
-    mail: "qastai_dobai@mail.de",
-  },
-  {
-    contact: "Qumran Numey",
-    name: "Qumran",
-    lastName: "Numey",
-    phonenumber: "01599 12345678",
-    mail: "qumran_numey@mail.de",
-  },
-  {
-    contact: "Ralf Dobai",
-    name: "Ralf",
-    lastName: "Dobai",
-    phonenumber: "01599 12345678",
-    mail: "ralf_dobai@mail.de",
-  },
-  {
-    contact: "Ramona Numey",
-    name: "Ramona",
-    lastName: "Numey",
-    phonenumber: "01599 12345678",
-    mail: "ramona_numey@mail.de",
-  },
-  {
-    contact: "Stefanie Dobai",
-    name: "Stefanie",
-    lastName: "Dobai",
-    phonenumber: "01599 12345678",
-    mail: "stefanie_dobai@mail.de",
-  },
-  {
-    contact: "Susanne Numey",
-    name: "Susanne",
-    lastName: "Numey",
-    phonenumber: "01599 12345678",
-    mail: "susanne_numey@mail.de",
-  },
-  {
-    contact: "Tabea Dobai",
-    name: "Tabea",
-    lastName: "Dobai",
-    phonenumber: "01599 12345678",
-    mail: "tabea_dobai@mail.de",
-  },
-  {
-    contact: "Theodor Numey",
-    name: "Theodor",
-    lastName: "Numey",
-    phonenumber: "01599 12345678",
-    mail: "theodor_numey@mail.de",
-  },
-  {
-    contact: "Ute Dobai",
-    name: "Ute",
-    lastName: "Dobai",
-    phonenumber: "01599 12345678",
-    mail: "ute_dobai@mail.de",
-  },
-  {
-    contact: "Uwe Numey",
-    name: "Uwe",
-    lastName: "Numey",
-    phonenumber: "01599 12345678",
-    mail: "uwe_numey@mail.de",
-  },
-  {
-    contact: "Verena Dobai",
-    name: "Verena",
-    lastName: "Dobai",
-    phonenumber: "01599 12345678",
-    mail: "verena_dobai@mail.de",
-  },
-  {
-    contact: "Veronika Numey",
-    name: "Veronika",
-    lastName: "Numey",
-    phonenumber: "01599 12345678",
-    mail: "veronika_numey@mail.de",
-  },
-  {
-    contact: "Walter Dobai",
-    name: "Walter",
-    lastName: "Dobai",
-    phonenumber: "01599 12345678",
-    mail: "walter_dobai@mail.de",
-  },
-  {
-    contact: "Wera Numey",
-    name: "Wera",
-    lastName: "Numey",
-    phonenumber: "01599 12345678",
-    mail: "wera_numey@mail.de",
-  },
-  {
-    contact: "Xenia Dobai",
-    name: "Xenia",
-    lastName: "Dobai",
-    phonenumber: "01599 12345678",
-    mail: "xenia_dobai@mail.de",
-  },
-  {
-    contact: "Xini Numey",
-    name: "Xini",
-    lastName: "Numey",
-    phonenumber: "01599 12345678",
-    mail: "xini_numey@mail.de",
-  },
-  {
-    contact: "Yannick Dobai",
-    name: "Yannick",
-    lastName: "Dobai",
-    phonenumber: "01599 12345678",
-    mail: "yannick_dobai@mail.de",
-  },
-  {
-    contact: "Yasmin Numey",
-    name: "Yasmin",
-    lastName: "Numey",
-    phonenumber: "01599 12345678",
-    mail: "yasmin_numey@mail.de",
-  },
-  {
-    contact: "Zara Dobai",
-    name: "Zara",
-    lastName: "Dobai",
-    phonenumber: "01599 12345678",
-    mail: "zara_dobai@mail.de",
-  },
-  {
-    contact: "Zorro Numey",
-    name: "Zorro",
-    lastName: "Numey",
-    phonenumber: "01599 12345678",
-    mail: "zorro_numey@mail.de",
-  },
-];
+let contacts;             // from ./contactsbook.js
+let contactToEdit;
+let labelColors;
+let currentLabelColor;
+let last_id;
+let selectedContact;
 
-
-var contactToEdit;
-var contactToEditIndex;
-var labelColors;
-var currentLabelColor;
-var last_id;
-var selectedContact;
-
-// variables to get the currend width of an element
+// variables to get the current width of an element
 let navigation_left;
 let navigation_left_width;
 let navTopBar;
-
+// variables for HTML elements
 let contactsListContainer;
 let contactListContainerWidth;
 let navTopBarHeight;
-
 let contactsPage;
+// let contactToEditIndex;
 
 
 function initGlobalVariables() {
+  contacts = book;
   labelColors = [
     BG_COLOR_SUPERNOVA,
     BG_COLOR_TABASCO,
@@ -440,7 +73,7 @@ function initGlobalVariables() {
 
 
 function initContacts() {
-  console.log("initContacts()");
+  // console.log("initContacts()");
   initGlobalVariables();
 
   navigation_left = document.getElementById("navigation-bar-left");
@@ -454,12 +87,13 @@ function initContacts() {
   // trying to fix bug after adding new contact
   document.getElementById("contact-list").innerHTML = "";
 
+
   for (let i = 0; i < contacts.length; i++) {
     const contact = contacts[i];
     insertContactToContactList(contact);
   }
-  console.log("Contacts to add:");
-  console.log(contacts);
+  // console.log("Contacts to add:");
+  // console.log(contacts);
 
   // save contactsToDatabase
   saveContactsToDataBase();
@@ -475,29 +109,29 @@ function initContacts() {
 
 
 function saveContactsToDataBase() {
-  console.log("saveContactsToDataBase()");
+  // console.log("saveContactsToDataBase()");
   for (let index = 0; index < contacts.length; index++) {
     const element = contacts[index];
     localStorage.setItem(
-      `contacts_${contacts[index]["letter"]}_firstNames`,
-      contacts[index]["names"]
+      `contacts_${contacts[index]}_firstName`,
+      contacts[index]["name"]
     );
     localStorage.setItem(
-      `contacts_${contacts[index]["letter"]}_lastNames`,
-      contacts[index]["lastNames"]
+      `contacts_${contacts[index]}_lastName`,
+      contacts[index]["lastName"]
     );
     localStorage.setItem(
-      `contacts_${contacts[index]["letter"]}_phonenumbers`,
-      contacts[index]["phonenumbers"]
+      `contacts_${contacts[index]}_phonenumber`,
+      contacts[index]["phonenumber"]
     );
     localStorage.setItem(
-      `contacts_${contacts[index]["letter"]}_mailaddresses`,
+      `contacts_${contacts[index]}_mailaddress`,
       contacts[index]["mail"]
     );
   }
 
   backend.setItem("contactsBook", contacts);
-  console.log("Alright. Successfully saved contacts to backend.");
+  // console.log("Alright. Successfully saved contacts to backend.");
   // backend.setItem(`contacts_${contacts[index]['letter']}_firstNames`, JSON.stringify(contacts[index]['names']));
   // backend.setItem(`contacts_${contacts[index]['letter']}_lastNames`, JSON.stringify(contacts[index]['lastNames']));
   // backend.setItem(`contacts_${contacts[index]['letter']}_phonenumbers`, JSON.stringify(contacts[index]['phonenumbers']));
@@ -507,8 +141,8 @@ function saveContactsToDataBase() {
 
 
 function insertContactToContactList(contact) {
-  console.log("insertContactToContactList");
-  console.log("contacts.length: ", contacts.length);
+  // console.log("insertContactToContactList");
+  // console.log("contacts.length: ", contacts.length);
   const name = contact["name"];
   const lastName = contact["lastName"];
   const emailAddress = contact["mail"];
@@ -520,6 +154,7 @@ function insertContactToContactList(contact) {
   }
 
   const bgColor = labelColors[currentLabelColor];
+  // console.log('bgColor: ', bgColor);
   currentLabelColor++;
 
   document.getElementById(
@@ -555,7 +190,7 @@ function cancelAddNewContact() {
 
 
 function cancelEditContact() {
-  console.log("cancelEditContact()");
+  // console.log("cancelEditContact()");
   document.getElementById("edit-or-new-popup").classList.add("d-none");
   document.getElementById("edit-form").classList.add("d-none");
 }
@@ -573,7 +208,7 @@ function addNewContact() {
   }
 
   let firstCharOfName = firstName.charAt(0);
-  console.log(`firstCharOfName: ${firstCharOfName}`);
+  // console.log(`firstCharOfName: ${firstCharOfName}`);
 
   let element = [];
   for (let index = 0; index < contacts.length; index++) {
@@ -581,7 +216,7 @@ function addNewContact() {
   }
 
   let contactListIndex = element.indexOf(firstCharOfName, 0);
-  console.log(`contactListIndex: ${contactListIndex}`);
+  // console.log(`contactListIndex: ${contactListIndex}`);
 
   document.getElementById("new-popup").style.visibility = "hidden";
   document.getElementById("new-popup").classList.add("d-none");
@@ -613,15 +248,15 @@ function sortContacts() {
     return a.name.localeCompare(b.name);
 });
 
-console.log('After sorting....');
-console.log(contacts);  
+// console.log('After sorting....');
+// console.log(contacts);  
 }
 
 
 function contactClicked(given_id) {
-  console.log("contactClicked()");
-  console.log(`last_id: ${last_id}`);
-  console.log(`given_id: ${given_id}`);
+  // console.log("contactClicked()");
+  // console.log(`last_id: ${last_id}`);
+  // console.log(`given_id: ${given_id}`);
 
   if (given_id != last_id) {
     document.getElementById(given_id).style.backgroundColor = "#2A3647";
@@ -646,7 +281,7 @@ function contactClicked(given_id) {
 
 function showContactInformation(given_id) {
   // display contact details
-  console.log('showContactInformation(), given_id', given_id);
+  // console.log('showContactInformation(), given_id', given_id);
   selectedContact = given_id;
   document.getElementById("contacts-details").classList.remove("d-none"); // testing !!!
   document.getElementById("contact-information").style =
@@ -656,9 +291,7 @@ function showContactInformation(given_id) {
   document.getElementById("edit-container").classList.remove("d-none");
   document.getElementById("mail-and-phone-container").classList.remove("d-none");
 
-  console.log('646: given_id: ', given_id);
-
-  let currentContact = Number(given_id.split("-")[1]);
+  // console.log('given_id: ', given_id);
   let searchLetter = given_id.replace("-"," ");
 
   let element = [];
@@ -666,13 +299,13 @@ function showContactInformation(given_id) {
     element.push(contacts[index]["contact"]);
   }
 
-  console.log('element: ', element);
+  // console.log('element: ', element);
 
   let clickedIndex = element.indexOf(searchLetter, 0);
-  console.log('clickedIndex: ', clickedIndex);
+  // console.log('clickedIndex: ', clickedIndex);
 
   let chosenContactsName = contacts[clickedIndex]["name"];
-  console.log('chosenContactsName: ', chosenContactsName);
+  // console.log('chosenContactsName: ', chosenContactsName);
   let chosenContactsLastName = contacts[clickedIndex]["lastName"];
   let firstLetterFirstName = chosenContactsName.charAt(0);
   let firstLetterLastName = chosenContactsLastName.charAt(0);
@@ -680,7 +313,7 @@ function showContactInformation(given_id) {
   let phoneNumber = contacts[clickedIndex]["phonenumber"];
   let mailAddress = contacts[clickedIndex]["mail"];
 
-  console.log(`You selected contact ${chosenContactsName} ${chosenContactsLastName}`);
+  // console.log(`You selected contact ${chosenContactsName} ${chosenContactsLastName}`);
 
   document.getElementById("label-big-and-name").innerHTML = /*html*/ `
   <span id="big-label" class="con_bigLabel">${firstLetterFirstName}${firstLetterLastName}</span>
@@ -692,13 +325,6 @@ function showContactInformation(given_id) {
     </div>
   </div>`;
 
-  // Get background color of label inside contact list
-  // let label_Id = `label-${chosenContactsName}-${chosenContactsLastName}`;
-  // console.log('697: label_Id: ', label_Id);
-  // let bgColorLabel = document.getElementById(label_Id).style.backgroundColor;
-  // console.log('699: bColorLabel: ', bgColorLabel);
-
-  // document.getElementById("big-label").style.backgroundColor = bgColorLabel;
   document.getElementById("big-label").style.backgroundColor = labelColors[clickedIndex];
   document.getElementById("edit-container").innerHTML = /*html*/ `
   <span class="con_contactInformationSpan">Contact Information</span>
@@ -720,7 +346,7 @@ function showContactInformation(given_id) {
 
 
 function hideContactDetails() {
-  console.log("hideContactDetails()");
+  // console.log("hideContactDetails()");
   document.getElementById("label-big-and-name").classList.add("d-none");
   document.getElementById("edit-container").classList.add("d-none");
   document.getElementById("mail-and-phone-container").classList.add("d-none");
@@ -728,9 +354,7 @@ function hideContactDetails() {
 
 
 function editContact(clickedIndex) {
-  console.log(
-    `You want to edit contact ${clickedIndex}`
-  );
+  // console.log(`You want to edit contact ${clickedIndex}`);
   document.getElementById("edit-or-new-popup").classList.remove("d-none");
   document.getElementById("edit-form").classList.remove("d-none");
   document.getElementById("edit-or-new-popup").style.visibility = "visible";
@@ -746,15 +370,15 @@ function submitEdit(contactToEdit) {
   let lastNameNew = document.getElementById("con-edit-name").value.split(" ")[1];
   let phoneNew = document.getElementById("con-edit-phone").value;
   let mailNew = document.getElementById("con-edit-mail").value;
-  console.log(`New contact details of contact: \nFirst name:${firstNameNew}\n
-  Last name:${lastNameNew}\nPhone number:${phoneNew}\nE-Mail:${mailNew}\n`);
+  // console.log(`New contact details of contact: \nFirst name:${firstNameNew}\n
+  // Last name:${lastNameNew}\nPhone number:${phoneNew}\nE-Mail:${mailNew}\n`);
   changeContact(contactToEdit, firstNameNew, lastNameNew, phoneNew, mailNew);
 }
 
 
 function changeContact(contactToEdit, firstNameNew, lastNameNew, phoneNew, mailNew) {
-  console.log("changeContact()");
-  console.log(`contactToEdit: ${contactToEdit}`);
+  // console.log("changeContact()");
+  // console.log(`contactToEdit: ${contactToEdit}`);
   const oldContact = contacts[contactToEdit]['contact'];
   const oldName = oldContact.split(' ')[0];
   const oldLastName = oldContact.split(' ')[1];
@@ -763,15 +387,15 @@ function changeContact(contactToEdit, firstNameNew, lastNameNew, phoneNew, mailN
   const element3 = mailNew;
   const fName = firstNameNew.charAt(0);
   const lName = lastNameNew.charAt(0);
-  console.log(`oldContact: ${oldContact}`);
-  console.log(`oldName: ${oldName}`);
-  console.log(`oldLastName: ${oldLastName}`);
-  console.log(`element: ${element}`);
-  console.log(`element2: ${element2}`);
-  console.log(`element3: ${element3}`);
-  console.log(`fName: ${fName}`);
+  // console.log(`oldContact: ${oldContact}`);
+  // console.log(`oldName: ${oldName}`);
+  // console.log(`oldLastName: ${oldLastName}`);
+  // console.log(`element: ${element}`);
+  // console.log(`element2: ${element2}`);
+  // console.log(`element3: ${element3}`);
+  // console.log(`fName: ${fName}`);
   let editID = `label-${oldName}-${oldLastName}`;
-  console.log('editID', editID);
+  // console.log('editID', editID);
   let bgColorLabel = document.getElementById(editID).style.backgroundColor;
 
   document.getElementById(`${editID}`).innerHTML = /*html*/`
@@ -797,21 +421,27 @@ function changeContact(contactToEdit, firstNameNew, lastNameNew, phoneNew, mailN
   contacts[contactToEdit]["lastName"] = lastNameNew;
   contacts[contactToEdit]["mail"] = mailNew;
   contacts[contactToEdit]["phonenumber"] = phoneNew;
-  console.log(contacts);
+  // console.log(contacts);
 
   // re-initialize contacts after editing
   initContacts();
 
   let newGivenID = contacts[contactToEdit]["contact"].replace(' ', '-');
   showContactInformation(newGivenID);
-
-  // let new_given_id = `${fName}-${contactToEditIndex}`;
-  // showContactInformation(new_given_id);
+  // var myJsonString = JSON.stringify(contacts);
+  // console.log(myJsonString);
+  // var fs = require('fs');
+  // fs.writeFile('./../backend/database.json', myJsonString, function(err) {
+  //   if (err) {
+  //       console.log(err);
+  //   }
+  // });
+  // console.log('OK, saved locally ne JSON file :)');
 }
 
 
 function closeContactInformationContainer() {
-  console.log(`You decided to close contact details of ${selectedContact}`);
+  // console.log(`You decided to close contact details of ${selectedContact}`);
   document.getElementById("contact-information").classList.add("d-none");
   document.getElementById("contact-information").style =
     "display: none !important;";
