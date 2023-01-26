@@ -396,6 +396,7 @@ let contacts = [
   },
 ];
 
+
 var contactToEditLetter;
 var contactToEditIndex;
 var labelColors;
@@ -413,6 +414,7 @@ let contactListContainerWidth;
 let navTopBarHeight;
 
 let contactsPage;
+
 
 function initGlobalVariables() {
   labelColors = [
@@ -435,6 +437,7 @@ function initGlobalVariables() {
 
   last_id = "XX";
 }
+
 
 function initContacts() {
   console.log("initContacts()");
@@ -470,6 +473,7 @@ function initContacts() {
   navTopBarHeight = navTopBar.offsetHeight;
 }
 
+
 function saveContactsToDataBase() {
   console.log("saveContactsToDataBase()");
   for (let index = 0; index < contacts.length; index++) {
@@ -501,6 +505,7 @@ function saveContactsToDataBase() {
   // }
 }
 
+
 function insertContactToContactList(contact) {
   console.log("insertContactToContactList");
   console.log("contacts.length: ", contacts.length);
@@ -531,6 +536,7 @@ function insertContactToContactList(contact) {
     bgColor;
 }
 
+
 function newContact() {
   // alert("You wanna add new contact?!");
   document.getElementById("new-popup").classList.remove("d-none");
@@ -539,6 +545,7 @@ function newContact() {
   document.getElementById("new-popup-form").classList.remove("d-none");
 }
 
+
 function cancelAddNewContact() {
   document.getElementById("new-popup").classList.add("d-none");
   document.getElementById("new-popup").style.visibility = "invisible";
@@ -546,11 +553,13 @@ function cancelAddNewContact() {
   document.getElementById("new-popup-form").classList.add("d-none");
 }
 
+
 function cancelEditContact() {
   console.log("cancelEditContact()");
   document.getElementById("edit-or-new-popup").classList.add("d-none");
   document.getElementById("edit-form").classList.add("d-none");
 }
+
 
 function addNewContact() {
   let firstName = document.getElementById("con-new-name").value.split(" ")[0];
@@ -578,111 +587,36 @@ function addNewContact() {
   document.getElementById("new-popup").classList.add("d-none");
   document.getElementById("new-popup-form").classList.add("d-none");
 
-  console.log(`New contact, first name: ${firstName}`);
-  console.log(`New contact, last name: ${lastName}`);
-  console.log(`New contact, phone: ${phone}`);
-  console.log(`New contact, mail: ${mail}`);
-
   // reset the input fields values
   document.getElementById("con-new-name").value = "";
   document.getElementById("con-new-phone").value = "";
   document.getElementById("con-new-mail").value = "";
 
-  contacts[contactListIndex]["names"].push(firstName);
-  contacts[contactListIndex]["lastNames"].push(lastName);
-  contacts[contactListIndex]["phonenumbers"].push(phone);
-  contacts[contactListIndex]["mail"].push(mail);
-
-  console.log(`Contacts after adding of ${firstName} ${lastName}`);
-  console.log(contacts);
-
+  contacts.push(
+    {
+      contact:`${firstName} ${lastName}`, 
+      name : `${firstName}`, 
+      lastName : `${lastName}`,
+      phonenumber: `${phone}`,
+      mail: `${mail}` 
+    }
+  );
   // sort contacts after adding new contact
-  sortContacts(contactListIndex);
+  sortContacts();
   initContacts();
 }
 
-function sortContacts(contactListIndex) {
-  console.log("sortContacts()");
-  let tmp = [];
-  let namesArray = [];
-  let lastNamesArray = [];
-  let lastNamesArrayNew = [];
-  let namesArrayNew = [];
-  let phonesArray = [];
-  let phonesArrayNew = [];
-  let mailArray = [];
-  let mailArrayNew = [];
 
-  // get the contacts' information into arrays
-  namesArray = contacts[contactListIndex]["names"];
-  lastNamesArray = contacts[contactListIndex]["lastNames"];
-  phonesArray = contacts[contactListIndex]["phonenumbers"];
-  mailArray = contacts[contactListIndex]["mail"];
+function sortContacts() {
 
-  // copy the elements of namesArray to tmp
-  for (let index = 0; index < namesArray.length; index++) {
-    const element = namesArray[index];
-    tmp.push(element);
-  }
+  contacts.sort(function (a, b) {
+    return a.name.localeCompare(b.name);
+});
 
-  console.log("Before sorting...");
-  console.log(namesArray);
-  console.log(lastNamesArray);
-  console.log(phonesArray);
-  console.log(mailArray);
-
-  let oldIndices = [];
-  let newIndices = [];
-
-  // sort the array tmp and copy it
-  namesArrayNew = tmp.sort();
-  console.log("The sorting does...");
-  console.log("namesArray:");
-  console.log(namesArray);
-  console.log("namesArrayNew:");
-  console.log(namesArrayNew);
-  console.log("tmp:");
-  console.log(tmp);
-
-  for (let i = 0; i < namesArray.length; i++) {
-    let searchTag = namesArrayNew[i];
-    console.log(`searchTag: ${searchTag}`);
-    oldIndices.push(namesArray.indexOf(searchTag, 0));
-  }
-
-  for (let i = 0; i < namesArray.length; i++) {
-    let searchTag = namesArrayNew[i];
-    console.log(`searchTag: ${searchTag}`);
-    newIndices.push(namesArrayNew.indexOf(searchTag, 0));
-  }
-
-  console.log(`oldIndices: ${oldIndices}`);
-  console.log(`newIndices: ${newIndices}`);
-
-  // fill arrays with dummy value
-  for (let index = 0; index < namesArray.length; index++) {
-    lastNamesArrayNew.push("dummy");
-    phonesArrayNew.push("dummy");
-    mailArrayNew.push("dummy");
-  }
-
-  for (let i = 0; i < namesArray.length; i++) {
-    lastNamesArrayNew[i] = lastNamesArray[oldIndices[i]];
-    phonesArrayNew[i] = phonesArray[oldIndices[i]];
-    mailArrayNew[i] = mailArray[oldIndices[i]];
-  }
-
-  console.log("the new sorted contacts are:");
-  console.log(namesArrayNew);
-  console.log(lastNamesArrayNew);
-  console.log(phonesArrayNew);
-  console.log(mailArrayNew);
-
-  contacts[contactListIndex]["names"] = namesArrayNew;
-  contacts[contactListIndex]["lastNames"] = lastNamesArrayNew;
-  contacts[contactListIndex]["phonenumbers"] = phonesArrayNew;
-  contacts[contactListIndex]["mail"] = mailArrayNew;
+console.log('After sorting....');
+console.log(contacts);  
 }
+
 
 function contactClicked(given_id) {
   console.log("contactClicked()");
@@ -709,6 +643,7 @@ function contactClicked(given_id) {
   }
 }
 
+
 function showContactInformation(given_id) {
   // display contact details
   selectedContact = given_id;
@@ -718,13 +653,9 @@ function showContactInformation(given_id) {
   document.getElementById("contact-information").classList.remove("d-none");
   document.getElementById("label-big-and-name").classList.remove("d-none");
   document.getElementById("edit-container").classList.remove("d-none");
-  document
-    .getElementById("mail-and-phone-container")
-    .classList.remove("d-none");
+  document.getElementById("mail-and-phone-container").classList.remove("d-none");
 
-
-
-  console.log('675: given_id: ', given_id);
+  console.log('646: given_id: ', given_id);
 
   let currentContact = Number(given_id.split("-")[1]);
   let searchLetter = given_id.replace("-"," ");
@@ -741,21 +672,14 @@ function showContactInformation(given_id) {
 
   let chosenContactsName = contacts[clickedIndex]["name"];
   console.log('chosenContactsName: ', chosenContactsName);
-  let chosenContactsLastName =
-    contacts[clickedIndex]["lastName"];
+  let chosenContactsLastName = contacts[clickedIndex]["lastName"];
   let firstLetterFirstName = chosenContactsName.charAt(0);
   let firstLetterLastName = chosenContactsLastName.charAt(0);
 
   let phoneNumber = contacts[clickedIndex]["phonenumber"];
   let mailAddress = contacts[clickedIndex]["mail"];
 
-  // console.log(`letterIndex: ${letterIndex}`);
-  console.log(`contacts.length: ${contacts.length}`);
-  console.log(`clickedIndex: ${clickedIndex}`);
-  console.log(`currentContact: ${currentContact}`);
-  console.log(
-    `You selected contact ${chosenContactsName} ${chosenContactsLastName}`
-  );
+  console.log(`You selected contact ${chosenContactsName} ${chosenContactsLastName}`);
 
   document.getElementById("label-big-and-name").innerHTML = /*html*/ `
   <span id="big-label" class="con_bigLabel">${firstLetterFirstName}${firstLetterLastName}</span>
@@ -790,12 +714,14 @@ function showContactInformation(given_id) {
   contactInformation.style = `width: calc(100vw - ${navigation_left_width}px - ${contactListContainerWidth}px`;
 }
 
+
 function hideContactDetails() {
   console.log("hideContactDetails()");
   document.getElementById("label-big-and-name").classList.add("d-none");
   document.getElementById("edit-container").classList.add("d-none");
   document.getElementById("mail-and-phone-container").classList.add("d-none");
 }
+
 
 function editContact(clickedIndex) {
   console.log(
@@ -808,6 +734,7 @@ function editContact(clickedIndex) {
   contactToEditLetter = alphabetIndex;
   contactToEditIndex = currentContact;
 }
+
 
 function submitEdit(contactToEditLetter, contactToEditIndex) {
   document.getElementById("edit-or-new-popup").classList.add("d-none");
@@ -833,6 +760,7 @@ function submitEdit(contactToEditLetter, contactToEditIndex) {
 
   // changeContact(contactToEditLetter, contactToEditIndex);
 }
+
 
 function changeContact(
   contactToEditLetter,
@@ -887,6 +815,7 @@ function changeContact(
 
   showContactInformation(new_given_id);
 }
+
 
 function closeContactInformationContainer() {
   console.log(`You decided to close contact details of ${selectedContact}`);
