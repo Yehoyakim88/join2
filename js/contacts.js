@@ -272,6 +272,7 @@ function contactClicked(given_id) {
     document.getElementById(given_id).style.color = "#000000";
     last_id = "XX";
     hideContactDetails();
+    document.getElementById('contact-information').classList.add('d-none');
 
     // trying to fix bug of missing hover effect after contact clicked
     document.getElementById(given_id).style.backgroundColor = "";
@@ -281,12 +282,11 @@ function contactClicked(given_id) {
 
 function showContactInformation(given_id) {
   // display contact details
-  // console.log('showContactInformation(), given_id', given_id);
   selectedContact = given_id;
   document.getElementById("contacts-details").classList.remove("d-none"); // testing !!!
-  document.getElementById("contact-information").style =
-    "display: flex !important;";
+  document.getElementById("contact-information").style = "display: flex;";
   document.getElementById("contact-information").classList.remove("d-none");
+
   document.getElementById("label-big-and-name").classList.remove("d-none");
   document.getElementById("edit-container").classList.remove("d-none");
   document.getElementById("mail-and-phone-container").classList.remove("d-none");
@@ -444,7 +444,7 @@ function closeContactInformationContainer() {
   // console.log(`You decided to close contact details of ${selectedContact}`);
   document.getElementById("contact-information").classList.add("d-none");
   document.getElementById("contact-information").style =
-    "display: none !important;";
+    "display: none important;";
 
   if (selectedContact != last_id) {
     document.getElementById(selectedContact).style.backgroundColor = "#2A3647";

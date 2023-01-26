@@ -2,6 +2,8 @@
   display: none !important;
 }
 
+.show {display: block !important;}
+
 .con_invisible {
   visibility: hidden;
 }
@@ -113,11 +115,8 @@
 }
 
 .con_contactInformation {
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
-  /* width: 54vw; */
-  /* width: calc(100% -232px -404px); */
-  /* height: 86vh; */
   padding: 16px;
   background-color: #f6f7f8;
 }
@@ -212,7 +211,8 @@
 
 .con_buttonContainer {
   position: absolute;
-  right: 52px;
+  z-index: 2;
+  right: -250px;
   bottom: 24px;
   display: flex;
   justify-content: flex-end;
@@ -270,7 +270,8 @@
   padding: 16px;
   border-radius: 20px;
   height: 100%;
-  width: fit-content;
+  /* width: fit-content; */
+  width: 400px;
   background-color: rgb(187, 187, 187);
   border: 2px solid black;
   filter: opacity(0.95);
@@ -281,6 +282,7 @@
   display: flex;
   flex-direction: column;
   padding: 16px;
+  width: 300px;
 }
 
 .con_editInputfield {
@@ -338,13 +340,13 @@
     font-size: 45px !important;
   }
 
-  .con_editOrNewPopup {
+  /* .con_editOrNewPopup {
     width: 500px !important;
-  }
+  } */
 
-  .con_buttonContainer {
+  /* .con_buttonContainer {
     left: 700px !important;
-  }
+  } */
 }
 
 @media(max-width: 1160px) {
@@ -368,9 +370,9 @@
     font-size: 16px !important;
   }
 
-  .con_buttonContainer {
+  /* .con_buttonContainer {
     left: 550px !important;
-  }
+  } */
 }
 
 @media(max-width: 1060px) {
@@ -407,11 +409,16 @@
 }
 
 @media(max-width: 930px) {
+  /* .con_contactsListContainer {
+    width: 500px!important
+  } */
+
   .con_contactInformation {
     position: absolute;
     z-index: 1;
     left: 12px !important;
-    display: none;
+    width: 400px !important;
+    /* display: none; */
   }
 
   .con_editContainer {
@@ -429,16 +436,17 @@
 
   .con_ContactInformationAddButtonMobile {
     display: flex !important;
+    width: 140px;
   }
 }
 
-@media(max-width: 600px) {
+@media(max-width: 725px) {
   .con_contacts {
-    left: 0px !important;
+    left: 175px !important;
   }
 
   .con_contactsListContainer {
-    width: 100vw !important;
+    width: 70vw !important;
   }
 
   .con_contactList {
@@ -460,5 +468,21 @@
 
   .con_CloseContactInformation {
     width: 120px;
+  }
+}
+
+@media(max-width: 600px) {
+  .con_contacts {
+    left: 25px !important;
+  }
+
+  .con_contactsListContainer {
+    width: 100vw !important;
+  }
+
+  .con_ContactInformationAddButtonMobile {
+    position: absolute;
+    top: 0px;
+    right: 70px;
   }
 }
