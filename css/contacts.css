@@ -485,4 +485,8 @@
     top: 0px;
     right: 70px;
   }
+
+  .con_ContactInformationAddButtonMobile {
+    top: -20px;
+  }
 }
