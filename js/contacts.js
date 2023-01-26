@@ -397,7 +397,7 @@ let contacts = [
 ];
 
 
-var contactToEditLetter;
+var contactToEdit;
 var contactToEditIndex;
 var labelColors;
 var currentLabelColor;
@@ -646,6 +646,7 @@ function contactClicked(given_id) {
 
 function showContactInformation(given_id) {
   // display contact details
+  console.log('showContactInformation(), given_id', given_id);
   selectedContact = given_id;
   document.getElementById("contacts-details").classList.remove("d-none"); // testing !!!
   document.getElementById("contact-information").style =
@@ -692,10 +693,13 @@ function showContactInformation(given_id) {
   </div>`;
 
   // Get background color of label inside contact list
-  let label_Id = `label-${chosenContactsName}-${chosenContactsLastName}`;
-  let bgColorLabel = document.getElementById(label_Id).style.backgroundColor;
+  // let label_Id = `label-${chosenContactsName}-${chosenContactsLastName}`;
+  // console.log('697: label_Id: ', label_Id);
+  // let bgColorLabel = document.getElementById(label_Id).style.backgroundColor;
+  // console.log('699: bColorLabel: ', bgColorLabel);
 
-  document.getElementById("big-label").style.backgroundColor = bgColorLabel;
+  // document.getElementById("big-label").style.backgroundColor = bgColorLabel;
+  document.getElementById("big-label").style.backgroundColor = labelColors[clickedIndex];
   document.getElementById("edit-container").innerHTML = /*html*/ `
   <span class="con_contactInformationSpan">Contact Information</span>
   <div class="hoverEffect" style="display: flex; align-items: center;" onclick="editContact(${clickedIndex})">
@@ -725,70 +729,53 @@ function hideContactDetails() {
 
 function editContact(clickedIndex) {
   console.log(
-    `You want to edit contact of  index ${alphabetIndex}`
+    `You want to edit contact ${clickedIndex}`
   );
   document.getElementById("edit-or-new-popup").classList.remove("d-none");
   document.getElementById("edit-form").classList.remove("d-none");
   document.getElementById("edit-or-new-popup").style.visibility = "visible";
   document.getElementById("edit-or-new-popup").style.display = "flex";
-  contactToEditLetter = alphabetIndex;
-  contactToEditIndex = currentContact;
+  contactToEdit = clickedIndex;
 }
 
 
-function submitEdit(contactToEditLetter, contactToEditIndex) {
+function submitEdit(contactToEdit) {
   document.getElementById("edit-or-new-popup").classList.add("d-none");
   document.getElementById("edit-form").classList.add("d-none");
-  let firstNameNew = document
-    .getElementById("con-edit-name")
-    .value.split(" ")[0];
-  let lastNameNew = document
-    .getElementById("con-edit-name")
-    .value.split(" ")[1];
+  let firstNameNew = document.getElementById("con-edit-name").value.split(" ")[0];
+  let lastNameNew = document.getElementById("con-edit-name").value.split(" ")[1];
   let phoneNew = document.getElementById("con-edit-phone").value;
   let mailNew = document.getElementById("con-edit-mail").value;
   console.log(`New contact details of contact: \nFirst name:${firstNameNew}\n
   Last name:${lastNameNew}\nPhone number:${phoneNew}\nE-Mail:${mailNew}\n`);
-  changeContact(
-    contactToEditLetter,
-    contactToEditIndex,
-    firstNameNew,
-    lastNameNew,
-    phoneNew,
-    mailNew
-  );
-
-  // changeContact(contactToEditLetter, contactToEditIndex);
+  changeContact(contactToEdit, firstNameNew, lastNameNew, phoneNew, mailNew);
 }
 
 
-function changeContact(
-  contactToEditLetter,
-  contactToEditIndex,
-  firstNameNew,
-  lastNameNew,
-  phoneNew,
-  mailNew
-) {
+function changeContact(contactToEdit, firstNameNew, lastNameNew, phoneNew, mailNew) {
   console.log("changeContact()");
-  console.log(`contactToEditLetter: ${contactToEditLetter}`);
-  console.log(`contactToEditIndex: ${contactToEditIndex}`);
+  console.log(`contactToEdit: ${contactToEdit}`);
+  const oldContact = contacts[contactToEdit]['contact'];
+  const oldName = oldContact.split(' ')[0];
+  const oldLastName = oldContact.split(' ')[1];
   const element = firstNameNew;
   const element2 = lastNameNew;
   const element3 = mailNew;
   const fName = firstNameNew.charAt(0);
   const lName = lastNameNew.charAt(0);
+  console.log(`oldContact: ${oldContact}`);
+  console.log(`oldName: ${oldName}`);
+  console.log(`oldLastName: ${oldLastName}`);
   console.log(`element: ${element}`);
   console.log(`element2: ${element2}`);
   console.log(`element3: ${element3}`);
   console.log(`fName: ${fName}`);
-  let editID = `label-${contacts[contactToEditLetter]["letter"]}-${contactToEditIndex}`;
+  let editID = `label-${oldName}-${oldLastName}`;
+  console.log('editID', editID);
   let bgColorLabel = document.getElementById(editID).style.backgroundColor;
 
-  document.getElementById(
-    `${contacts[contactToEditLetter]["letter"]}-${contactToEditIndex}`
-  ).innerHTML = /*html*/ `
-  <span id="label-${contacts[contactToEditLetter]["letter"]}-${contactToEditIndex}" class="con_contactListElementLabel">${fName}${lName}</span>  
+  document.getElementById(`${editID}`).innerHTML = /*html*/`
+  <span id="label-${element}-${element2}" class="con_contactListElementLabel">${fName}${lName}</span>  
       <div>
         <span>${element} ${element2}</span>
         <span class="con_contactListElementEmail">${element3}</span>
@@ -805,15 +792,21 @@ function changeContact(
   document.getElementById("con-edit-mail").value = "";
 
   // push new contact information to JSON
-  contacts[contactToEditLetter]["names"][contactToEditIndex] = firstNameNew;
-  contacts[contactToEditLetter]["lastNames"][contactToEditIndex] = lastNameNew;
-  contacts[contactToEditLetter]["mail"][contactToEditIndex] = mailNew;
-  contacts[contactToEditLetter]["phonenumbers"][contactToEditIndex] = phoneNew;
+  contacts[contactToEdit]["contact"] = `${firstNameNew} ${lastNameNew}`;
+  contacts[contactToEdit]["name"] = firstNameNew;
+  contacts[contactToEdit]["lastName"] = lastNameNew;
+  contacts[contactToEdit]["mail"] = mailNew;
+  contacts[contactToEdit]["phonenumber"] = phoneNew;
   console.log(contacts);
 
-  let new_given_id = `${fName}-${contactToEditIndex}`;
+  // re-initialize contacts after editing
+  initContacts();
 
-  showContactInformation(new_given_id);
+  let newGivenID = contacts[contactToEdit]["contact"].replace(' ', '-');
+  showContactInformation(newGivenID);
+
+  // let new_given_id = `${fName}-${contactToEditIndex}`;
+  // showContactInformation(new_given_id);
 }
 
 
