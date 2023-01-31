@@ -29,7 +29,7 @@ let alphabet = [
   "Z",
 ];
 
-let contacts;             // from ./contactsbook.js
+let contacts; // from ./contactsbook.js
 let contactToEdit;
 let labelColors;
 let currentLabelColor;
@@ -46,7 +46,6 @@ let contactListContainerWidth;
 let navTopBarHeight;
 let contactsPage;
 // let contactToEditIndex;
-
 
 function initGlobalVariables() {
   contacts = book;
@@ -71,7 +70,6 @@ function initGlobalVariables() {
   last_id = "XX";
 }
 
-
 function initContacts() {
   // console.log("initContacts()");
   initGlobalVariables();
@@ -86,7 +84,6 @@ function initContacts() {
 
   // trying to fix bug after adding new contact
   document.getElementById("contact-list").innerHTML = "";
-
 
   for (let i = 0; i < contacts.length; i++) {
     const contact = contacts[i];
@@ -106,7 +103,6 @@ function initContacts() {
   navTopBar = document.getElementById("nav-top-bar");
   navTopBarHeight = navTopBar.offsetHeight;
 }
-
 
 function saveContactsToDataBase() {
   // console.log("saveContactsToDataBase()");
@@ -139,7 +135,6 @@ function saveContactsToDataBase() {
   // }
 }
 
-
 function insertContactToContactList(contact) {
   // console.log("insertContactToContactList");
   // console.log("contacts.length: ", contacts.length);
@@ -171,7 +166,6 @@ function insertContactToContactList(contact) {
     bgColor;
 }
 
-
 function newContact() {
   // alert("You wanna add new contact?!");
   document.getElementById("new-popup").classList.remove("d-none");
@@ -180,7 +174,6 @@ function newContact() {
   document.getElementById("new-popup-form").classList.remove("d-none");
 }
 
-
 function cancelAddNewContact() {
   document.getElementById("new-popup").classList.add("d-none");
   document.getElementById("new-popup").style.visibility = "invisible";
@@ -188,13 +181,11 @@ function cancelAddNewContact() {
   document.getElementById("new-popup-form").classList.add("d-none");
 }
 
-
 function cancelEditContact() {
   // console.log("cancelEditContact()");
   document.getElementById("edit-or-new-popup").classList.add("d-none");
   document.getElementById("edit-form").classList.add("d-none");
 }
-
 
 function addNewContact() {
   let firstName = document.getElementById("con-new-name").value.split(" ")[0];
@@ -227,31 +218,26 @@ function addNewContact() {
   document.getElementById("con-new-phone").value = "";
   document.getElementById("con-new-mail").value = "";
 
-  contacts.push(
-    {
-      contact:`${firstName} ${lastName}`, 
-      name : `${firstName}`, 
-      lastName : `${lastName}`,
-      phonenumber: `${phone}`,
-      mail: `${mail}` 
-    }
-  );
+  contacts.push({
+    contact: `${firstName} ${lastName}`,
+    name: `${firstName}`,
+    lastName: `${lastName}`,
+    phonenumber: `${phone}`,
+    mail: `${mail}`,
+  });
   // sort contacts after adding new contact
   sortContacts();
   initContacts();
 }
 
-
 function sortContacts() {
-
   contacts.sort(function (a, b) {
     return a.name.localeCompare(b.name);
-});
+  });
 
-// console.log('After sorting....');
-// console.log(contacts);  
+  // console.log('After sorting....');
+  // console.log(contacts);
 }
-
 
 function contactClicked(given_id) {
   // console.log("contactClicked()");
@@ -272,13 +258,12 @@ function contactClicked(given_id) {
     document.getElementById(given_id).style.color = "#000000";
     last_id = "XX";
     hideContactDetails();
-    document.getElementById('contact-information').classList.add('d-none');
+    document.getElementById("contact-information").classList.add("d-none");
 
     // trying to fix bug of missing hover effect after contact clicked
     document.getElementById(given_id).style.backgroundColor = "";
   }
 }
-
 
 function showContactInformation(given_id) {
   // display contact details
@@ -289,10 +274,14 @@ function showContactInformation(given_id) {
 
   document.getElementById("label-big-and-name").classList.remove("d-none");
   document.getElementById("edit-container").classList.remove("d-none");
-  document.getElementById("mail-and-phone-container").classList.remove("d-none");
+  document
+    .getElementById("mail-and-phone-container")
+    .classList.remove("d-none");
+
+  document.getElementById('con-button-container').classList.add('d-none');
 
   // console.log('given_id: ', given_id);
-  let searchLetter = given_id.replace("-"," ");
+  let searchLetter = given_id.replace("-", " ");
 
   let element = [];
   for (let index = 0; index < contacts.length; index++) {
@@ -325,7 +314,8 @@ function showContactInformation(given_id) {
     </div>
   </div>`;
 
-  document.getElementById("big-label").style.backgroundColor = labelColors[clickedIndex];
+  document.getElementById("big-label").style.backgroundColor =
+    labelColors[clickedIndex];
   document.getElementById("edit-container").innerHTML = /*html*/ `
   <span class="con_contactInformationSpan">Contact Information</span>
   <div class="hoverEffect" style="display: flex; align-items: center;" onclick="editContact(${clickedIndex})">
@@ -344,7 +334,6 @@ function showContactInformation(given_id) {
   contactInformation.style = `width: calc(100vw - ${navigation_left_width}px - ${contactListContainerWidth}px`;
 }
 
-
 function hideContactDetails() {
   // console.log("hideContactDetails()");
   document.getElementById("label-big-and-name").classList.add("d-none");
@@ -352,22 +341,38 @@ function hideContactDetails() {
   document.getElementById("mail-and-phone-container").classList.add("d-none");
 }
 
-
 function editContact(clickedIndex) {
   // console.log(`You want to edit contact ${clickedIndex}`);
   document.getElementById("edit-or-new-popup").classList.remove("d-none");
   document.getElementById("edit-form").classList.remove("d-none");
   document.getElementById("edit-or-new-popup").style.visibility = "visible";
   document.getElementById("edit-or-new-popup").style.display = "flex";
+  let editName = contacts[clickedIndex];
+  let f = editName['name'][0];
+  let l = editName['lastName'][0];
+  let chosenContact = editName['name'] + ' ' + editName['lastName'];
+  let chosenPhone = contacts[clickedIndex]['phonenumber'];
+  let chosenMail = editName['mail'];
+  let editLabel = document.getElementById("edit-label");
+  console.log(`f: ${f}    l: ${l}`);
+  editLabel.innerHTML = `<span>${f}${l}</span>`;
+  editLabel.style.backgroundColor = labelColors[clickedIndex];
+  document.getElementById('con-edit-name').value = chosenContact;
+  document.getElementById('con-edit-phone').value = chosenPhone;
+  document.getElementById('con-edit-mail').value = chosenMail;
+
   contactToEdit = clickedIndex;
 }
-
 
 function submitEdit(contactToEdit) {
   document.getElementById("edit-or-new-popup").classList.add("d-none");
   document.getElementById("edit-form").classList.add("d-none");
-  let firstNameNew = document.getElementById("con-edit-name").value.split(" ")[0];
-  let lastNameNew = document.getElementById("con-edit-name").value.split(" ")[1];
+  let firstNameNew = document
+    .getElementById("con-edit-name")
+    .value.split(" ")[0];
+  let lastNameNew = document
+    .getElementById("con-edit-name")
+    .value.split(" ")[1];
   let phoneNew = document.getElementById("con-edit-phone").value;
   let mailNew = document.getElementById("con-edit-mail").value;
   // console.log(`New contact details of contact: \nFirst name:${firstNameNew}\n
@@ -375,13 +380,18 @@ function submitEdit(contactToEdit) {
   changeContact(contactToEdit, firstNameNew, lastNameNew, phoneNew, mailNew);
 }
 
-
-function changeContact(contactToEdit, firstNameNew, lastNameNew, phoneNew, mailNew) {
+function changeContact(
+  contactToEdit,
+  firstNameNew,
+  lastNameNew,
+  phoneNew,
+  mailNew
+) {
   // console.log("changeContact()");
   // console.log(`contactToEdit: ${contactToEdit}`);
-  const oldContact = contacts[contactToEdit]['contact'];
-  const oldName = oldContact.split(' ')[0];
-  const oldLastName = oldContact.split(' ')[1];
+  const oldContact = contacts[contactToEdit]["contact"];
+  const oldName = oldContact.split(" ")[0];
+  const oldLastName = oldContact.split(" ")[1];
   const element = firstNameNew;
   const element2 = lastNameNew;
   const element3 = mailNew;
@@ -398,7 +408,7 @@ function changeContact(contactToEdit, firstNameNew, lastNameNew, phoneNew, mailN
   // console.log('editID', editID);
   let bgColorLabel = document.getElementById(editID).style.backgroundColor;
 
-  document.getElementById(`${editID}`).innerHTML = /*html*/`
+  document.getElementById(`${editID}`).innerHTML = /*html*/ `
   <span id="label-${element}-${element2}" class="con_contactListElementLabel">${fName}${lName}</span>  
       <div>
         <span>${element} ${element2}</span>
@@ -408,7 +418,7 @@ function changeContact(contactToEdit, firstNameNew, lastNameNew, phoneNew, mailN
   document.getElementById(editID).style.backgroundColor = bgColorLabel;
   document.getElementById("edit-or-new-popup").style.visibility = "hidden";
   document.getElementById("edit-or-new-popup").classList.add("d-none");
-  document.getElementById("con-edit-name").classList.add("d-none");
+  // document.getElementById("con-edit-name").classList.add("d-none");
 
   // reset input fields
   document.getElementById("con-edit-name").value = "";
@@ -426,7 +436,7 @@ function changeContact(contactToEdit, firstNameNew, lastNameNew, phoneNew, mailN
   // re-initialize contacts after editing
   initContacts();
 
-  let newGivenID = contacts[contactToEdit]["contact"].replace(' ', '-');
+  let newGivenID = contacts[contactToEdit]["contact"].replace(" ", "-");
   showContactInformation(newGivenID);
   // var myJsonString = JSON.stringify(contacts);
   // console.log(myJsonString);
@@ -439,9 +449,9 @@ function changeContact(contactToEdit, firstNameNew, lastNameNew, phoneNew, mailN
   // console.log('OK, saved locally ne JSON file :)');
 }
 
-
 function closeContactInformationContainer() {
   // console.log(`You decided to close contact details of ${selectedContact}`);
+  document.getElementById('con-button-container').classList.remove('d-none');
   document.getElementById("contact-information").classList.add("d-none");
   document.getElementById("contact-information").style =
     "display: none important;";
