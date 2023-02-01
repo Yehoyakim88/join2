@@ -343,6 +343,7 @@ function hideContactDetails() {
 
 function editContact(clickedIndex) {
   // console.log(`You want to edit contact ${clickedIndex}`);
+  document.getElementById('id-nav-mobile').classList.add('d-none');         // hide navigation mobile bar on bottom
   document.getElementById("edit-or-new-popup").classList.remove("d-none");
   document.getElementById("edit-form").classList.remove("d-none");
   document.getElementById("edit-or-new-popup").style.visibility = "visible";

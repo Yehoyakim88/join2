@@ -298,8 +298,8 @@
 
 .sideBarText {
   align-self: center;
-  /* width: 361px; */    /* new on 2023-02-01 */
-  /* height: 73px; */    /* new on 2023-02-01 */
+  /* width: 361px; */ /* new on 2023-02-01 */
+  /* height: 73px; */ /* new on 2023-02-01 */
 
   /* Version 2/t1 */
 
@@ -331,7 +331,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 120px;  /* new on 2023-02-01 */
+  width: 120px; /* new on 2023-02-01 */
   height: 120px; /* new on 2023-02-01 */
   /*width: 8.3vw; /* new on 2023-02-01 */
   /*height: 8.3vw; /* new on 2023-02-01 */
@@ -470,14 +470,14 @@
 
   .con_editForm {
     margin-left: 42px;
-   }
+  }
 
-   .editLabel {
+  .editLabel {
     position: absolute !important;
     top: 0px !important;
     left: 400px !important;
     /* margin-left: 40px; */
-    }
+  }
 }
 
 @media (max-width: 1200px) {
@@ -648,7 +648,7 @@
 
   .con_editOrNewPopup {
     left: -190px !important;
-    width: 100vw !important
+    width: 100vw !important;
   }
 
   .con_editOverlaySideBar {
@@ -664,33 +664,104 @@
   }
 }
 
-/* mobile view from max-width: 600px and below*/
-
-/* @media (max-width: 600px) {
-  .con_contacts {
-    left: 25px !important;
-  }
-
+@media (max-width: 600px) {
   .con_contactsListContainer {
     width: 100vw !important;
   }
 
-  .con_ContactInformationAddButtonMobile {
-    position: absolute;
-    top: 0px;
-    right: 70px;
+  .con_contacts {
+    left: 0px !important;
   }
 
-  .con_ContactInformationAddButtonMobile {
-    top: -20px;
+  .con_contactInformation {
+    left: 0px !important;
+    height: 86vh;
   }
 
   .con_editOrNewPopup {
-    left: -40px !important;
+    z-index: 2;
+    flex-direction: column;
+    top: -100px;
+    left: 0px !important;
+    width: 100vw !important;
+    height: 100vh !important;
+  }
+
+  .con_editOverlaySideBar {
+    width: 100vw !important;
+    height: 40vh !important;
+    /* height: 351px !important; */
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+  }
+
+  .sideBarText {
+    top: 100px;
+  }
+
+  .nav_top_bar {
+    z-index: 1;
+  }
+
+  .rightSide {
+    width: 100vw !important;
+    height: 60vh !important;
+    /* height: 410px; */
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 40px !important;
+    border-bottom-right-radius: 40px !important;
+    padding-right: 0 !important;
   }
 
   .con_editInputField {
-    width: 45vw !important;
-    margin-left: 40px !important;
+    width: 80vw !important;
+    height: 41px !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
   }
-} */
+
+  .con_editInputfieldName {
+    margin-top: 49px !important;
+    margin-bottom: 35px !important;
+  }
+
+  .con_editInputfieldMail {
+    margin-bottom: 59px !important;
+  }
+
+  .con_editInputfieldPhone {
+    margin-bottom: 35px !important;
+  }
+
+  .saveEditButton {
+    margin-top: 0px !important;
+    width: 71px !important;
+    height: 51px !important;
+  }
+
+  .con_editForm {
+    margin-top: 0px !important;
+    margin-left: 27px !important;
+    margin-right: 27px !important;
+    justify-content: center;
+    padding-bottom: 10vh !important;
+  }
+
+  .joinLogoEditOverlay {
+    display: none !important;
+  }
+
+  .editLabel {
+    left: 32vw !important;
+    top: 190px !important;
+    width: 120px !important;
+    height: 120px !important;
+    font-weight: 400 !important;
+    font-size: 27px !important;
+    line-height: 120% !important;
+    margin-left: 0 !important;
+  }
+}
