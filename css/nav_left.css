@@ -158,7 +158,7 @@
     filter: opacity(105%);
    }
 
-@media (max-width: 600px) {
+@media (max-width: 730px) {
 
 .navigation_left {
     display: none;
